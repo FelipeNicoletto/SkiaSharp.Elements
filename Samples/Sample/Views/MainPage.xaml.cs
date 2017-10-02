@@ -29,7 +29,7 @@ namespace Sample.Views
 
             Detail = new NavigationPage(page);
 
-            if (Device.RuntimePlatform != Device.Windows)
+            if (Device.RuntimePlatform != Device.UWP)
             {
                 IsPresented = false;
             }

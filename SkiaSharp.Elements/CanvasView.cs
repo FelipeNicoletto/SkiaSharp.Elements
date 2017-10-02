@@ -2,7 +2,7 @@
 using SkiaSharp.Views.Forms;
 using SkiaSharp.Elements.Collections;
 
-namespace SkiaSharp.Elements.Forms
+namespace SkiaSharp.Elements
 {
     public class CanvasView : SKCanvasView
     {
@@ -22,6 +22,7 @@ namespace SkiaSharp.Elements.Forms
         #region Properties
         
         private ElementsController _controller;
+        public ElementsController Controller { get => _controller; }
 
         public ElementsCollection Elements => _controller.Elements;
         

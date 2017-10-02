@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sample.SampleViews.AnimationPage"
-             xmlns:elements="clr-namespace:SkiaSharp.Elements.Forms;assembly=SkiaSharp.Elements.Forms"
+             xmlns:elements="clr-namespace:SkiaSharp.Elements;assembly=SkiaSharp.Elements"
              Title="Detail">
 
     <elements:CanvasView x:Name="canvas" Touch="Canvas_Touch" EnableTouchEvents="True" />
