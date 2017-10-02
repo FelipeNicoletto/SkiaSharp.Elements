@@ -1,9 +1,5 @@
 # SkiaSharp.Elements
 
-
-
-
-
 ## Using Elements
 Install the NuGet package SkiaSharp.Elements:
 ```
@@ -44,6 +40,9 @@ new Animation((value) =>
 })
 .Commit(this, "Anim", length: 2000, easing: Easing.SpringOut);
 ```
+
+## Samples
+Get sample ![here](https://github.com/FelipeNicoletto/SkiaSharp.Elements/tree/master/Samples)
 
 ![](https://raw.githubusercontent.com/FelipeNicoletto/SkiaSharp.Elements/master/images/image_1.png)
 ![](https://raw.githubusercontent.com/FelipeNicoletto/SkiaSharp.Elements/master/images/image_2.png)
