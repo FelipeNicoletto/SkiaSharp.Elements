@@ -90,6 +90,9 @@
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.59.1\lib\XamariniOS\SkiaSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaSharp.Elements, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Elements.1.0.0\lib\portable45-net45+win8+wpa81\SkiaSharp.Elements.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp.Views.Forms, Version=1.59.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.59.1.1\lib\XamariniOS\SkiaSharp.Views.Forms.dll</HintPath>
     </Reference>
@@ -115,10 +118,6 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SkiaSharp.Elements\SkiaSharp.Elements.csproj">
-      <Project>{079414ac-2a0c-4c07-96b6-553432dd4f5b}</Project>
-      <Name>SkiaSharp.Elements</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{52B71A3B-23B4-4549-B8BE-D17E09F25D1C}</Project>
       <Name>Sample</Name>

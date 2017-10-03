@@ -134,10 +134,6 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SkiaSharp.Elements\SkiaSharp.Elements.csproj">
-      <Project>{079414ac-2a0c-4c07-96b6-553432dd4f5b}</Project>
-      <Name>SkiaSharp.Elements</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{ca50d24d-e38e-48f0-93fe-4cd751d3d81f}</Project>
       <Name>Sample</Name>

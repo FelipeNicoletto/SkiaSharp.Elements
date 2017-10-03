@@ -49,6 +49,9 @@
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.59.1\lib\MonoAndroid\SkiaSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaSharp.Elements, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Elements.1.0.0\lib\portable45-net45+win8+wpa81\SkiaSharp.Elements.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp.Views.Android, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.Views.1.59.1.1\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
     </Reference>
@@ -120,10 +123,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SkiaSharp.Elements\SkiaSharp.Elements.csproj">
-      <Project>{079414ac-2a0c-4c07-96b6-553432dd4f5b}</Project>
-      <Name>SkiaSharp.Elements</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{97800ed7-3f12-4312-96d8-a9c8696ad94f}</Project>
       <Name>Sample</Name>
