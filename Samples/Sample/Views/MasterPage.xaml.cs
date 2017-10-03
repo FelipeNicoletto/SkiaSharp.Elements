@@ -30,7 +30,8 @@ namespace Sample.Views
                 {
                     new MainPageMenuItem { Id = 0, Title = "Basic", TargetType = typeof(SampleBasicPage) },
                     new MainPageMenuItem { Id = 1, Title = "Animation", TargetType = typeof(AnimationPage) },
-                    new MainPageMenuItem { Id = 2, Title = "Pan", TargetType = typeof(PanPage) }
+                    new MainPageMenuItem { Id = 2, Title = "Pan", TargetType = typeof(PanPage) },
+                    new MainPageMenuItem { Id = 2, Title = "Animation 2", TargetType = typeof(Animation2Page) }
                 });
             }
 
