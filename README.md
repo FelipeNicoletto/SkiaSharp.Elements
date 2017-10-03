@@ -1,5 +1,8 @@
 # SkiaSharp.Elements
 
+Simple way to draw and interact with elements using the library SkiaSharp.
+Compatible with Xamarin Forms
+
 ## Using Elements
 Install the NuGet package SkiaSharp.Elements:
 ```
