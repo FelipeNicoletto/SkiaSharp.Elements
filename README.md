@@ -1,5 +1,8 @@
 # SkiaSharp.Elements
 
+Simple way to draw and interact with elements using the library SkiaSharp.
+Compatible with Xamarin Forms
+
 ## Using Elements
 Install the NuGet package SkiaSharp.Elements:
 ```
@@ -20,7 +23,7 @@ nuget install SkiaSharp.Elements
 </ContentPage>
 ```
 
-### Drawing a Rectangle
+### Drawing Rectangle
 ```
 var rectangle = new SkiaSharp.Elements.Rectangle(SKRect.Create(20, 20, 100, 100))
 {
@@ -43,7 +46,7 @@ canvas.Elements.Add(rectangle);
 ```
 new Animation((value) =>
 {
-    _rectangle.Transformation = SKMatrix.MakeRotationDegrees(360 * (float)value);
+    rectangle.Transformation = SKMatrix.MakeRotationDegrees(360 * (float)value);
 })
 .Commit(this, "Anim", length: 2000, easing: Easing.SpringOut);
 ```
