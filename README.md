@@ -22,6 +22,15 @@ nuget install SkiaSharp.Elements
     
 </ContentPage>
 ```
+### Elements
+- Rectangle
+- Ellipse
+- Image
+- Text
+- Polygon
+- Line
+- Group
+
 
 ### Drawing Rectangle
 ```
