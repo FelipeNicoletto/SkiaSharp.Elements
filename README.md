@@ -51,6 +51,7 @@ new Animation((value) =>
 .Commit(this, "Anim", length: 2000, easing: Easing.SpringOut);
 ```
 ![](https://raw.githubusercontent.com/FelipeNicoletto/SkiaSharp.Elements/master/images/animation.gif)
+![](https://raw.githubusercontent.com/FelipeNicoletto/SkiaSharp.Elements/master/images/animation2.gif)
 
 ## Samples
 Get sample ![here](https://github.com/FelipeNicoletto/SkiaSharp.Elements/tree/master/Samples)
