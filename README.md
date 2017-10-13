@@ -6,7 +6,7 @@ Compatible with Xamarin Forms
 ## Using Elements
 Install the NuGet package SkiaSharp.Elements:
 ```
-nuget install SkiaSharp.Elements
+![nuget install SkiaSharp.Elements](https://www.nuget.org/packages/SkiaSharp.Elements)
 ```
 
 ## Getting Started
