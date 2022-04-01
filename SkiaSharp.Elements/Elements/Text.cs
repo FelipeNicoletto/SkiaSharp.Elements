@@ -13,9 +13,11 @@ namespace SkiaSharp.Elements
 
         private Text() : base(new SKRect())
         {
+            BorderWidth = 0;
             _foreColor = SKColors.Black;
             _fontSize = 15f;
             _autoSize = true;
+            _bounds = null;
         }
 
         #endregion Constructors
@@ -31,6 +33,10 @@ namespace SkiaSharp.Elements
             get => _content;
             set
             {
+                if (_autoSize && _content != value)
+                {
+                    _bounds = null;
+                }
                 _content = value;
                 Invalidate();
             }
@@ -57,7 +63,7 @@ namespace SkiaSharp.Elements
                     Font?.Dispose();
                     Font = null;
                 }
-                else if(Font == null || !Font.FamilyName.Equals(value, StringComparison.OrdinalIgnoreCase))
+                else if (Font == null || !Font.FamilyName.Equals(value, StringComparison.OrdinalIgnoreCase))
                 {
                     Font = SKTypeface.FromFamilyName(value);
                 }
@@ -70,6 +76,10 @@ namespace SkiaSharp.Elements
             get => _font;
             set
             {
+                if (_autoSize && _font?.FamilyName != value?.FamilyName)
+                {
+                    _bounds = null;
+                }
                 _font = value;
                 Invalidate();
             }
@@ -81,6 +91,10 @@ namespace SkiaSharp.Elements
             get => _fontSize;
             set
             {
+                if (_autoSize && _fontSize != value)
+                {
+                    _bounds = null;
+                }
                 _fontSize = value;
                 Invalidate();
             }
@@ -92,16 +106,18 @@ namespace SkiaSharp.Elements
             get => _autoSize;
             set
             {
-                if(value && _autoSize != value)
+                if (value && _autoSize != value)
                 {
                     _bounds = null;
                 }
                 _autoSize = value;
+                Invalidate();
             }
         }
         
         private SKPoint _location;
         private SKRect? _bounds;
+        private SKRect? _textBounds;
         public override SKRect Bounds
         {
             get
@@ -112,6 +128,7 @@ namespace SkiaSharp.Elements
                     {
                         var b = new SKRect();
                         paint.MeasureText(Content, ref b);
+                        _textBounds = b;
                         _bounds = SKRect.Create(_location, b.Size);
                     }
                 }
@@ -138,21 +155,24 @@ namespace SkiaSharp.Elements
 
         public override void Draw(SKCanvas canvas)
         {
-            DrawBefore(canvas);
-
-            SuspendDrawBeforeAfter();
-            base.Draw(canvas);
-            ResumeDrawBeforeAfter();
-
-            if (!string.IsNullOrWhiteSpace(Content))
+            if (Visible)
             {
-                using (var paint = CreatePaint())
+                DrawBefore(canvas);
+
+                SuspendDrawBeforeAfter();
+                base.Draw(canvas);
+                ResumeDrawBeforeAfter();
+
+                if (!string.IsNullOrWhiteSpace(Content))
                 {
-                    canvas.DrawText(Content, _location.X, _location.Y + Bounds.Height - paint.FontMetrics.Descent, paint);
+                    using (var paint = CreatePaint())
+                    {
+                        canvas.DrawText(Content, _location.X - _textBounds.Value.Left, _location.Y + Bounds.Height - _textBounds.Value.Bottom, paint);
+                    }
                 }
+
+                DrawAfter(canvas);
             }
-                
-            DrawAfter(canvas);
         }
 
         public void Dispose()

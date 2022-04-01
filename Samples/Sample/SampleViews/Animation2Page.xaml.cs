@@ -51,7 +51,7 @@ namespace Sample.SampleViews
                         ele.Location = new SKPoint(startX + (diffX * (float)value),
                                                    startY + (diffY * (float)value));
                         
-                        ele.Transformation = SKMatrix.MakeRotationDegrees(360 * (float)value);
+                        ele.Transformation = SKMatrix.CreateRotationDegrees(360 * (float)value);
                     }
                 }
                 

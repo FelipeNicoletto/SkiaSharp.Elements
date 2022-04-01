@@ -25,6 +25,7 @@ namespace SkiaSharp.Elements
         #region Properties
 
         private int _suspendLayout;
+        protected bool SuspendedLayout => _suspendLayout > 0;
 
         private SKColor _backgroundColor;
         public SKColor BackgroundColor
@@ -43,11 +44,17 @@ namespace SkiaSharp.Elements
 
         #region Public methods
 
+
+        private object _lock = new object();
+
         public void Invalidate()
         {
-            if (_suspendLayout == 0)
+            if (!SuspendedLayout)
             {
-                OnInvalidate?.Invoke(this, EventArgs.Empty);
+                lock (_lock)
+                {
+                    OnInvalidate?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 

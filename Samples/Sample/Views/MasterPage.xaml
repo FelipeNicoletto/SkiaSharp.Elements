@@ -36,7 +36,7 @@
               <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
                     Text="{Binding Title}" 
-                    FontSize="24"/>
+                    FontSize="Medium"/>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

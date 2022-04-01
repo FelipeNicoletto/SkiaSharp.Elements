@@ -85,17 +85,20 @@
 
         public override void Draw(SKCanvas canvas)
         {
-            DrawBefore(canvas);
-
-            using (var paint = new SKPaint { IsAntialias = true })
+            if (Visible)
             {
-                paint.Style = SKPaintStyle.Stroke;
-                paint.Color = Color;
-                paint.StrokeWidth = LineWidth;
-                canvas.DrawLine(Point1.X, Point1.Y, Point2.X, Point2.Y, paint);
+                DrawBefore(canvas);
+
+                using (var paint = new SKPaint { IsAntialias = true })
+                {
+                    paint.Style = SKPaintStyle.Stroke;
+                    paint.Color = Color;
+                    paint.StrokeWidth = LineWidth;
+                    canvas.DrawLine(Point1.X, Point1.Y, Point2.X, Point2.Y, paint);
+                }
+
+                DrawAfter(canvas);
             }
-                
-            DrawAfter(canvas);
         }
 
         #endregion Public methods

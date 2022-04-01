@@ -35,7 +35,7 @@ namespace Sample.SampleViews
             var rectangle = new SkiaSharp.Elements.Rectangle(SKRect.Create(120, 150, 100, 100))
             {
                 FillColor = new SKColor(SKColors.SkyBlue.Red, SKColors.SkyBlue.Green, SKColors.SkyBlue.Blue, 200),
-                Transformation = SKMatrix.MakeRotationDegrees(45)
+                Transformation = SKMatrix.CreateRotationDegrees(45)
             };
             canvas.Elements.Add(rectangle);
         }

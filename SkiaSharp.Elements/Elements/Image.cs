@@ -1,6 +1,8 @@
-﻿namespace SkiaSharp.Elements
+﻿using System;
+
+namespace SkiaSharp.Elements
 {
-    public class Image : Element
+    public class Image : Element, IDisposable
     {
         #region Constructors
 
@@ -87,7 +89,7 @@
 
         public override void Draw(SKCanvas canvas)
         {
-            if (_bitmap != null || _drawBorder)
+            if (Visible && (_bitmap != null || _drawBorder))
             {
                 DrawBefore(canvas);
                 using (var paint = new SKPaint { IsAntialias = true })
@@ -191,6 +193,11 @@
             }
 
             return SKRect.Create(x, y, w, h);
+        }
+
+        public void Dispose()
+        {
+            _bitmap?.Dispose();
         }
 
         #endregion Private methods

@@ -25,7 +25,7 @@ namespace Sample.SampleViews
             {
                 canvas.SuspendLayout();
 
-                _rectangle.Transformation = SKMatrix.MakeRotationDegrees(360 * (float)value);
+                _rectangle.Transformation = SKMatrix.CreateRotationDegrees(360 * (float)value);
 
                 _rectangle.Location = new SKPoint(_startLocation.X + (100 * (float)value),
                                                   _startLocation.Y + (100 * (float)value));

@@ -88,7 +88,7 @@
             set
             {
                 var bounds = Path.Bounds;
-                Path.Transform(SKMatrix.MakeTranslation(value.Location.X - bounds.Left, value.Location.Y - bounds.Top));
+                Path.Transform(SKMatrix.CreateTranslation(value.Location.X - bounds.Left, value.Location.Y - bounds.Top));
                 Invalidate();
             }
         }
@@ -99,7 +99,7 @@
 
         public override void Draw(SKCanvas canvas)
         {
-            if (_drawFill || _drawBorder)
+            if (Visible && (_drawFill || _drawBorder))
             {
                 DrawBefore(canvas);
 

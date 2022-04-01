@@ -1,15 +1,18 @@
-﻿using System;
-using SkiaSharp.Views.Forms;
+﻿using SkiaSharp;
+using SkiaSharp.Elements;
 using SkiaSharp.Elements.Collections;
+using SkiaSharp.Views.Forms;
+using System;
 
-namespace SkiaSharp.Elements
+namespace Sample.Views
 {
-    public class CanvasView : SKCanvasView
+    internal class CanvasView : SKCanvasView
     {
+
         #region Constructors
 
         public CanvasView()
-		{
+        {
             _controller = new ElementsController();
             _controller.OnInvalidate += delegate (object sender, EventArgs e)
             {
@@ -20,25 +23,25 @@ namespace SkiaSharp.Elements
         #endregion Constructors
 
         #region Properties
-        
+
         private ElementsController _controller;
         public ElementsController Controller { get => _controller; }
 
         public ElementsCollection Elements => _controller.Elements;
-        
+
         #endregion Properties
 
         #region Public methods
-        
+
         public Element GetElementAtPoint(SKPoint point)
         {
             return Elements.GetElementAtPoint(point);
         }
-        
+
         public void SuspendLayout() => _controller.SuspendLayout();
-        
+
         public void ResumeLayout(bool invalidate = false) => _controller.ResumeLayout(invalidate);
-        
+
         #endregion Public methods
 
         #region Private methods
@@ -53,7 +56,7 @@ namespace SkiaSharp.Elements
 
             PaintSurfaceAfter?.Invoke(this, e);
         }
-        
+
         #endregion Private methods
 
         #region Events

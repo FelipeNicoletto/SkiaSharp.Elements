@@ -71,7 +71,7 @@
 
         public override void Draw(SKCanvas canvas)
         {
-            if (_drawFill || _drawBorder)
+            if (Visible && (_drawFill || _drawBorder))
             {
                 DrawBefore(canvas);
 

@@ -92,7 +92,7 @@ namespace SkiaSharp.Elements
 
         public override void Draw(SKCanvas canvas)
         {
-            if (Elements.Count > 0)
+            if (Visible && Elements.Count > 0)
             {
                 DrawBefore(canvas);
                 

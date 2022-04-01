@@ -88,6 +88,17 @@ namespace SkiaSharp.Elements
             }
         }
 
+        private bool _visible = true;
+        public virtual bool Visible
+        {
+            get => _visible;
+            set
+            {
+                _visible = value;
+                Invalidate();
+            }
+        }
+
         private SKMatrix? _transformation;
         public SKMatrix? Transformation
         {
@@ -243,8 +254,8 @@ namespace SkiaSharp.Elements
                 var tx = bounds.Left + (bounds.Width * _transformationPivot.X);
                 var ty = bounds.Top + (bounds.Height * _transformationPivot.Y);
 
-                var anchor = SKMatrix.MakeTranslation(tx, ty);
-                var anchorN = SKMatrix.MakeTranslation(-tx, -ty);
+                var anchor = SKMatrix.CreateTranslation(tx, ty);
+                var anchorN = SKMatrix.CreateTranslation(-tx, -ty);
                 
                 transformation = anchor.Concat(Transformation.Value)
                                        .Concat(anchorN);
@@ -252,16 +263,15 @@ namespace SkiaSharp.Elements
             
             if (concatParents)
             {
-                var parent = Parent as Element;
-                if (parent != null)
+                if (Parent is Element parent)
                 {
                     var t = parent.GetTransformation(true);
 
                     if (t.HasValue)
                     {
-                        if(!transformation.HasValue)
+                        if (!transformation.HasValue)
                         {
-                            transformation = SKMatrix.MakeIdentity();
+                            transformation = SKMatrix.CreateIdentity();
                         }
 
                         transformation = t.Value.Concat(transformation.Value);
@@ -278,14 +288,14 @@ namespace SkiaSharp.Elements
 
         private ElementsController GetController()
         {
-            var controller = Parent as ElementsController;
-            if (controller != null)
+            if (Parent is ElementsController controller)
             {
                 return controller;
             }
+
             var parent = Parent as Element;
 
-            while(parent != null)
+            while (parent != null)
             {
                 controller = parent.Parent as ElementsController;
                 if (controller != null)

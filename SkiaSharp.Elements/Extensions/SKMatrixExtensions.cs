@@ -3,36 +3,21 @@
     public static class SKMatrixExtensions
     {
         public static SKMatrix Rotate(this SKMatrix m, float angle)
-        {
-            return m.Concat(SKMatrix.MakeRotation(angle));
-        }
+            => m.Concat(SKMatrix.CreateRotation(angle));
 
         public static SKMatrix RotateDegrees(this SKMatrix m, float andegrees)
-        {
-            return m.Concat(SKMatrix.MakeRotationDegrees(andegrees));
-        }
+            => m.Concat(SKMatrix.CreateRotationDegrees(andegrees));
 
         public static SKMatrix Scale(this SKMatrix m, float sx, float sy)
-        {
-            return m.Concat(SKMatrix.MakeScale(sx, sy));
-        }
+            => m.Concat(SKMatrix.CreateScale(sx, sy));
 
         public static SKMatrix Translate(this SKMatrix m, float dx, float dy)
-        {
-            return m.Concat(SKMatrix.MakeTranslation(dx, dy));
-        }
+            => m.Concat(SKMatrix.CreateTranslation(dx, dy));
 
         public static SKMatrix Invert(this SKMatrix m)
-        {
-            m.TryInvert(out var m2);
-            return m2;
-        }
+            => m.TryInvert(out var m2) ? m2 : m;
 
         public static SKMatrix Concat(this SKMatrix m, SKMatrix m2)
-        {
-            var target = m;
-            SKMatrix.PreConcat(ref target, m2);
-            return target;
-        }
+            => m.PreConcat(m2);
     }
 }

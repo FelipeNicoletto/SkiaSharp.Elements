@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sample.SampleViews.Animation2Page"
-             xmlns:elements="clr-namespace:SkiaSharp.Elements;assembly=SkiaSharp.Elements"
+             xmlns:views="clr-namespace:Sample.Views"
              Title="Detail">
 
-    <elements:CanvasView x:Name="canvas" />
+    <views:CanvasView x:Name="canvas" />
     
 </ContentPage>
