@@ -1,6 +1,6 @@
 # SkiaSharp.Elements
 
-<img src="https://img.shields.io/nuget/dt/SkiaSharp.Elements.svg"/>
+<a href="https://www.nuget.org/packages/SkiaSharp.Elements"><img src="https://img.shields.io/nuget/dt/SkiaSharp.Elements.svg" /></a>
 
 Simple way to draw and interact with elements using the library SkiaSharp.
 Compatible with Xamarin Forms
