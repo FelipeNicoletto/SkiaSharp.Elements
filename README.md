@@ -38,7 +38,7 @@ canvas.Elements.Add(rectangle);
 var rectangle = new SkiaSharp.Elements.Rectangle(SKRect.Create(120, 150, 100, 100))
 {
     FillColor = SKColors.SpringGreen
-    Transformation = SKMatrix.MakeRotationDegrees(45)
+    Transformation = SKMatrix.CreateRotationDegrees(45)
 };
 canvas.Elements.Add(rectangle);
 ```
@@ -47,7 +47,7 @@ canvas.Elements.Add(rectangle);
 ```csharp
 new Animation((value) =>
 {
-    rectangle.Transformation = SKMatrix.MakeRotationDegrees(360 * (float)value);
+    rectangle.Transformation = SKMatrix.CreateRotationDegrees(360 * (float)value);
 })
 .Commit(this, "Anim", length: 2000, easing: Easing.SpringOut);
 ```
