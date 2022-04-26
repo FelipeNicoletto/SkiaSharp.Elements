@@ -167,7 +167,8 @@ namespace SkiaSharp.Elements
                 {
                     using (var paint = CreatePaint())
                     {
-                        canvas.DrawText(Content, _location.X - _textBounds.Value.Left, _location.Y + Bounds.Height - _textBounds.Value.Bottom, paint);
+                        var bounds = Bounds;
+                        canvas.DrawText(Content, _location.X - _textBounds.Value.Left, _location.Y + bounds.Height - _textBounds.Value.Bottom, paint);
                     }
                 }
 
